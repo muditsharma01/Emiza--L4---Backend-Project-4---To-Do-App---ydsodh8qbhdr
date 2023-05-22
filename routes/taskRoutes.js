@@ -6,7 +6,7 @@ const {
   deleteTask,
   getallTask
 } = require("../controllers/taskControllers");
-const { isowner } = require("../middleware/taskMiddleware"); // Corrected import statement
+const { isowner } = require("../middleware/taskMiddleware");
 
 const router = express.Router();
 
@@ -14,7 +14,6 @@ router.get("/", getallTask);
 router.post("/create", createTask);
 router.get("/detail", isowner, getdetailTask);
 router.post("/delete", isowner, deleteTask);
-router.post("/update", isowner, updateTask);
+router.post("/update", isowner, updateTask); // Ensure the updateTask function is imported correctly
 
 module.exports = router;
-
