@@ -1,6 +1,12 @@
 const express = require("express");
-const { createTask, getdetailTask, updateTask, deleteTask, getallTask } = require("../controllers/taskControllers");
-const { isowner } = require("../middleware/taskMiddleware");
+const {
+  createTask,
+  getdetailTask,
+  updateTask,
+  deleteTask,
+  getallTask
+} = require("../controllers/taskControllers");
+const { isowner } = require("../middleware/taskMiddleware"); // Corrected import statement
 
 const router = express.Router();
 
@@ -11,3 +17,4 @@ router.post("/delete", isowner, deleteTask);
 router.post("/update", isowner, updateTask);
 
 module.exports = router;
+
